@@ -1,0 +1,12 @@
+### CLIENT EMULATOR
+
+### TEST GET / WEBSITE
+GET http://localhost:8383
+
+
+### TEST GET / DASHBOARD
+GET http://localhost:8383/dashboard
+
+
+### TEST DATA ENDPOINT
+GET http://localhost:8383/api/data
