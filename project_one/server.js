@@ -4,11 +4,12 @@
 const express = require('express')
 const app = express()
 const PORT = 8383
-let data = {
-    player: "Ousmane Dembele"
-    }
 
-console.log("EMONEY")
+let data = ["Cole Palmer", "Ousmane Dembele"]
+
+//Middleware -- In between two ends, expect to recieve JSON
+app.use(express.json())
+
 
 // Endpoint = HTTP VERBS (method which is the action) && ROUTES (or paths)
 // Invoking method and configuring (coding), the method informs the nature of the request,
@@ -17,20 +18,28 @@ console.log("EMONEY")
 
 // Type 1 – Website Endpoints (Sends HTML, usually used when user enters URL)
 app.get('/', (req, res) => {
+    console.log("User requested the home page")
     res.send(`
         <body
         style=" 
         background-color:pink;
         color:blue;"
         >
-        <h1>Players</h1>
+
+        <h1>Ball Knolly</h1>
+        <a href="/dashboard">Dashboard</h3></a>
+
         <p> ${JSON.stringify(data)}</p> 
-        </body>       
+        </body> 
+        <script>console.log("This is a cheeky script")</script>      
         `)
 })
 
 app.get('/dashboard', (req, res) => {
-    res.send("<h1>Dashboard</h1> ")
+    res.send(`<body>
+        <h1>Dashboard</h1> 
+        <a href="/">Home</h3></a>
+        </body>`)
 })
 
 // Type 2 – API Endpoints (non-visual)
@@ -38,7 +47,22 @@ app.get('/dashboard', (req, res) => {
 // CRUD-method create-post read-get update-put delete-delete
 app.get('/api/data', (req, res) => {
     console.log("This is for data");
-    res.send(data)
+    res.status(201).send(data)
+})
+
+app.post('/api/data', (req, res) => {
+    // Someone wants to create a user (when the hit a sign up button)
+    // Hit button after putting in their credentials, and their browser is wired up to send network req to server to handle action
+    const newEntry = req.body
+    console.log(newEntry.name)
+    data.push(newEntry.name)
+    res.sendStatus(201)
+})
+
+app.delete('/api/data', (req, res) => {
+    data.pop()
+    console.log("Data is deleted")
+    res.sendStatus(203)
 })
 
 

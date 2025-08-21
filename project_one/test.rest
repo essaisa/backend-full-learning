@@ -10,3 +10,14 @@ GET http://localhost:8383/dashboard
 
 ### TEST DATA ENDPOINT
 GET http://localhost:8383/api/data
+
+### TEST DATA ENDPOINT FOR ADDING USER
+POST http://localhost:8383/api/data
+Content-Type: application/json
+
+{
+    "name" : "Mo Salah"
+}
+
+### TEST DATA ENDPOINT FOR DELETING USER
+DELETE http://localhost:8383/api/data
