@@ -1,0 +1,19 @@
+{
+  "name": "project_two",
+  "version": "1.0.0",
+  "description": "A full stack player network application that uses a NodeJS backend, a SQLite database and JWT authentication",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env --experimental-strip-types ./src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "better-sqlite3": "^12.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
