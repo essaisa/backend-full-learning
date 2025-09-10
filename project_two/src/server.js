@@ -1,10 +1,12 @@
-import express from "express"
-import path, {dirname} from "path"
-import { fileURLToPath } from "url"
-
+import express from 'express'
+import path, {dirname} from 'path'
+import { fileURLToPath } from 'url'
+import authRoutes from './routes/authRoutes.js'
+import todoRoutes from './routes/todoRoutes.js'
+import authMiddleware from './middleware/authMiddleware.js'
 
 const app = express()
-const PORT = process.env.PORT || 5003
+const PORT = process.env.PORT || 5000
 
 // GET FILE PATH FROM URL FROM CURRENT MODULE
 const __filename = fileURLToPath(import.meta.url)
@@ -25,6 +27,12 @@ app.use(express.static(path.join(__dirname, '../public')))
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
+
+// Routes (Prefix will be Auth)
+
+app.use('/auth', authMiddleware, authRoutes)
+app.use('/todos', authMiddleware, todoRoutes)
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on PORT: ${PORT}`)
