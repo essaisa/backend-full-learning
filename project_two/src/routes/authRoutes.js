@@ -58,7 +58,7 @@ router.post('/login', (req, res) => {
 
         // if pass dont match, return out from function
 
-        if (!password){
+        if (!passwordIsValid){
             res.sendStatus(404).send({message: "Password is Invalid!"})
         }
 
@@ -72,9 +72,6 @@ router.post('/login', (req, res) => {
         console.log(err)
         res.sendStatus(503)
     }
-
-
-
 })
 
 export default router

@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
 // Routes (Prefix will be Auth)
 
-app.use('/auth', authMiddleware, authRoutes)
+app.use('/auth', authRoutes)
 app.use('/todos', authMiddleware, todoRoutes)
 
 
