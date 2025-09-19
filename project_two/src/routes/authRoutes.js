@@ -34,7 +34,6 @@ router.post('/register', (req, res) => {
     }
 
     console.log(hashedPassword);
-    res.sendStatus(201)
 })
 
 router.post('/login', (req, res) => { 

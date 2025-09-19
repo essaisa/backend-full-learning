@@ -15,6 +15,30 @@ POST http://localhost:5003/auth/login
 Content-Type: application/json
 
 {
-    "username": "essa@essa2.com",
+    "username": "essa@gmail.com",
     "password": "123123123"
+}
+
+### VIEW TASK (protected)
+GET http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4MjE5OTIxLCJleHAiOjE3NTgzMDYzMjF9.V1kmxQH81_RASl2pvCeCk9yva6gyw1wfZzA9u8iCSF0
+
+
+### ADD TASK (protected)
+POST http://localhost:5003/todos 
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4MjE5OTIxLCJleHAiOjE3NTgzMDYzMjF9.V1kmxQH81_RASl2pvCeCk9yva6gyw1wfZzA9u8iCSF0
+
+
+{
+    "task": "Finish the job, job not finished!"
+}
+
+### UPDATE TASK (protected) /TODOS/:ID
+GET http://localhost:5003/todos/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4MjE5OTIxLCJleHAiOjE3NTgzMDYzMjF9.V1kmxQH81_RASl2pvCeCk9yva6gyw1wfZzA9u8iCSF0
+
+{
+    "completed": "1"
 }
