@@ -1,0 +1,49 @@
+### GET / 
+GET http://localhost:5003
+
+### REGISTER A USER POST AUTH/REGISTER
+POST http://localhost:5003/auth/register
+Content-Type: application/json
+
+{
+    "username": "essa@gmail.com",
+    "password": "123123123"
+}
+
+### LOGIN A USER POST AUTH/LOGIN
+POST http://localhost:5003/auth/login
+Content-Type: application/json
+
+{
+    "username": "essa@gmail.com",
+    "password": "123123123"
+}
+
+### VIEW TASK (protected)
+GET http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4NjI2NjE2LCJleHAiOjE3NTg3MTMwMTZ9.kFz2GljxbnmIm2iwCCKHzThiDTCfTMjwmtm_NmVXWv4
+
+
+### ADD TASK (protected)
+POST http://localhost:5003/todos 
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4NjI2NjE2LCJleHAiOjE3NTg3MTMwMTZ9.kFz2GljxbnmIm2iwCCKHzThiDTCfTMjwmtm_NmVXWv4
+
+
+{
+    "task": "Finish the job, job not finished!"
+}
+
+### UPDATE TASK (protected) /TODOS/:ID
+PUT http://localhost:5003/todos/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4NjI2NjE2LCJleHAiOjE3NTg3MTMwMTZ9.kFz2GljxbnmIm2iwCCKHzThiDTCfTMjwmtm_NmVXWv4
+
+{
+    "completed": "1"
+}
+
+### UPDATE TASK (protected) /TODOS/:ID
+DELETE http://localhost:5003/todos/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4NjI2NjE2LCJleHAiOjE3NTg3MTMwMTZ9.kFz2GljxbnmIm2iwCCKHzThiDTCfTMjwmtm_NmVXWv4
