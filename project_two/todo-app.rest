@@ -21,13 +21,13 @@ Content-Type: application/json
 
 ### VIEW TASK (protected)
 GET http://localhost:5003/todos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4MjE5OTIxLCJleHAiOjE3NTgzMDYzMjF9.V1kmxQH81_RASl2pvCeCk9yva6gyw1wfZzA9u8iCSF0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4NjI2NjE2LCJleHAiOjE3NTg3MTMwMTZ9.kFz2GljxbnmIm2iwCCKHzThiDTCfTMjwmtm_NmVXWv4
 
 
 ### ADD TASK (protected)
 POST http://localhost:5003/todos 
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4MjE5OTIxLCJleHAiOjE3NTgzMDYzMjF9.V1kmxQH81_RASl2pvCeCk9yva6gyw1wfZzA9u8iCSF0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4NjI2NjE2LCJleHAiOjE3NTg3MTMwMTZ9.kFz2GljxbnmIm2iwCCKHzThiDTCfTMjwmtm_NmVXWv4
 
 
 {
@@ -35,10 +35,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4MjE5
 }
 
 ### UPDATE TASK (protected) /TODOS/:ID
-GET http://localhost:5003/todos/2
+PUT http://localhost:5003/todos/2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4MjE5OTIxLCJleHAiOjE3NTgzMDYzMjF9.V1kmxQH81_RASl2pvCeCk9yva6gyw1wfZzA9u8iCSF0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4NjI2NjE2LCJleHAiOjE3NTg3MTMwMTZ9.kFz2GljxbnmIm2iwCCKHzThiDTCfTMjwmtm_NmVXWv4
 
 {
     "completed": "1"
 }
+
+### UPDATE TASK (protected) /TODOS/:ID
+DELETE http://localhost:5003/todos/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU4NjI2NjE2LCJleHAiOjE3NTg3MTMwMTZ9.kFz2GljxbnmIm2iwCCKHzThiDTCfTMjwmtm_NmVXWv4
