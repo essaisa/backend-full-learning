@@ -1,6 +1,5 @@
 import express from 'express'
 import prisma from '../prismaClient.js'
-import db from '../db.js'
 
 const router = express.Router()
 
@@ -11,7 +10,7 @@ router.get('/', async (req, res) => {
             userId: req.userId
         }
     })
-    
+
     res.json(todos)
 })
 
