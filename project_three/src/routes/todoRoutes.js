@@ -5,7 +5,7 @@ const router = express.Router()
 
 // Get all todos for logged-in users
 router.get('/', async (req, res) => {
-    const todos = await prisma.todos.findMany({
+    const todos = await prisma.todo.findMany({
         where: {
             userId: req.userId
         }
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     const { task } = req.body
 
     try {
-        const todo = await prisma.todos.create({
+        const todo = await prisma.todo.create({
             data: {
                 task,
                 userId: req.userId
@@ -41,7 +41,7 @@ router.put('/:id', async (req, res) => {
     const { completed } = req.body
     const { id } = req.params
 
-    const updatedTodo = await prisma.todos.updateMany({
+    const updatedTodo = await prisma.todo.updateMany({
         where: {
             id: parseInt(id),
             userId: req.userId,
